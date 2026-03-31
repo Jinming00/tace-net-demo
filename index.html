@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Audio samples for TACE-Net.">
+    <title>TACE-Net Audio Samples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --panel: #ffffff;
+            --panel-soft: #f7f9fc;
+            --line: #d8e0e8;
+            --line-strong: #c5cfda;
+            --sample-border: #bccddd;
+            --sample-accent: #6a8aa8;
+            --sample-accent-soft: #eef4f9;
+            --text: #162232;
+            --text-soft: #526171;
+            --badge: #eef6f7;
+            --accent: #17324d;
+            --max-width: 980px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "IBM Plex Sans", sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.58;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            display: block;
+        }
+
+        .page {
+            width: min(var(--max-width), calc(100vw - 32px));
+            margin: 24px auto 36px;
+        }
+
+        .paper-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .paper-header h1 {
+            margin: 0;
+            font-size: clamp(1.65rem, 2.6vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            text-wrap: balance;
+        }
+
+        .authors {
+            margin: 10px auto 0;
+            max-width: 900px;
+            color: var(--text-soft);
+            font-size: 0.98rem;
+        }
+
+        .affiliation {
+            margin: 6px auto 0;
+            max-width: 900px;
+            color: var(--text-soft);
+            font-size: 0.94rem;
+        }
+
+        .panel {
+            margin-top: 24px;
+        }
+
+        .panel h2 {
+            margin: 0 0 12px;
+            font-size: 1.28rem;
+            line-height: 1.15;
+        }
+
+        .panel p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 0.98rem;
+            text-align: justify;
+        }
+
+        .pipeline-figure {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #fff;
+            padding: 16px;
+        }
+
+        .pipeline-figure img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            image-rendering: high-quality;
+        }
+
+        .pipeline-caption {
+            margin-top: 10px;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+        }
+
+        .sample-list {
+            display: grid;
+            gap: 18px;
+        }
+
+        .sample-card {
+            position: relative;
+            border: 1px solid var(--sample-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--panel);
+            box-shadow: 0 4px 12px rgba(22, 34, 50, 0.05);
+        }
+
+        .sample-card::before {
+            content: "";
+            display: block;
+            height: 4px;
+            background: linear-gradient(90deg, var(--sample-accent), #9bb3c8);
+        }
+
+        .sample-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--line);
+            background: var(--sample-accent-soft);
+        }
+
+        .sample-header h3 {
+            margin: 0;
+            font-size: 1.02rem;
+            line-height: 1.15;
+            color: #1f3851;
+        }
+
+        .sample-section {
+            padding: 12px 14px;
+            border-top: 1px solid var(--line);
+        }
+
+        .sample-section:first-of-type {
+            border-top: 0;
+        }
+
+        .sample-section h4 {
+            margin: 0 0 10px;
+            font-size: 0.94rem;
+            line-height: 1.2;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .stage-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 9px;
+            border: 1px solid var(--line-strong);
+            border-radius: 999px;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: #f7fafc;
+            white-space: nowrap;
+        }
+
+        .section-topic {
+            font-size: 0.98rem;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .single-audio {
+            max-width: 360px;
+        }
+
+        .branch-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .branch-block {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px;
+            background: #fbfcfd;
+        }
+
+        .branch-title {
+            margin: 0 0 10px;
+            font-size: 0.94rem;
+            line-height: 1.2;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .subgroup + .subgroup {
+            margin-top: 12px;
+        }
+
+        .subgroup-label {
+            margin-bottom: 6px;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .reference-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .compare-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .output-grid {
+            grid-template-columns: repeat(1, minmax(0, 280px));
+        }
+
+        .audio-item {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        .audio-item:hover {
+            border-color: var(--line-strong);
+        }
+
+        .audio-title {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .audio-title strong {
+            font-size: 0.92rem;
+            line-height: 1.32;
+        }
+
+        .ours-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: var(--badge);
+            color: var(--accent);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 920px) {
+            .audio-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .output-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            .branch-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page {
+                width: calc(100vw - 20px);
+                margin: 16px auto 24px;
+            }
+
+            .sample-header,
+            .sample-section {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .single-audio {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="paper-header">
+            <h1>TACE-Net: Two-Stage Asymmetric Conditional Enhancement for Weak-Source Recovery in Co-Channel FM</h1>
+            <div class="authors">
+                Jinming Zhang, Haoyang Li, Ritesh Chandra Tewari, Wei Rao, Sirajudeen Gulam Razul, Eng Siong Chng
+            </div>
+            <div class="affiliation">
+                Nanyang Technological University, Singapore
+            </div>
+        </header>
+
+        <section class="panel" aria-labelledby="abstract-title">
+            <h2 id="abstract-title">Abstract</h2>
+            <p>
+                For co-channel FM reception with two simultaneously active sources, two-pass constant modulus algorithm (CMA) can provide a coarse decomposition of the overlapped signals, but the weak branch often remains severely distorted after demodulation. We propose TACE-Net, a two-stage asymmetric conditional enhancement framework for weak-source recovery. Stage I refines the dominant CMA branch, and Stage II enhances the weak branch using the pre-CMA mixture, the weak branch, and the dominant branch refined in Stage I. To benchmark weak-branch recovery, we construct VCTK-Radio, a dataset simulating FM modulation, co-channel mixing, CMA-based separation, and demodulation using the VCTK corpus. On VCTK-Radio, TACE-Net improves DNSMOS-OVRL from 1.164 to 2.901 and PESQ from 1.169 to 1.901, while reducing WER from 71.25% to 28.72% on the weak branch, outperforming competitive baselines.
+            </p>
+        </section>
+
+        <section class="panel" aria-labelledby="pipeline-title">
+            <h2 id="pipeline-title">Pipeline</h2>
+            <div class="pipeline-figure">
+                <img src="assets/pipeline_v1_01.png" alt="Pipeline overview of TACE-Net">
+            </div>
+            <div class="pipeline-caption">
+                CMA first separates the pre-CMA mixture <strong>x<sub>mix</sub></strong> into two branches: the dominant branch <strong>x<sub>1</sub><sup>cma</sup></strong> and the weak branch <strong>x<sub>2</sub><sup>cma</sup></strong>. TACE-Net then refines <strong>x<sub>1</sub><sup>cma</sup></strong> in Stage I and enhances the weak branch in Stage II.
+            </div>
+        </section>
+
+        <section class="panel" aria-labelledby="samples-title">
+            <h2 id="samples-title">Samples</h2>
+            <div class="sample-list" id="sample-list"></div>
+        </section>
+    </main>
+
+    <script>
+        const sampleData = [
+            {
+                id: "sample-01",
+                title: "Sample 1",
+                mixture: { label: "Pre-CMA Mixture", src: "audio/sample-01/mixture.wav" },
+                weakMain: [
+                    { label: "Clean Ref.", src: "audio/sample-01/weak_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-01/weak_post_cma.wav" },
+                    { label: "DEMUCS", src: "audio/sample-01/weak_demucs.wav" },
+                    { label: "SEMamba", src: "audio/sample-01/weak_semamba.wav" },
+                    { label: "MP-SENet", src: "audio/sample-01/weak_mpsenet.wav" },
+                    { label: "TACE-Net", src: "audio/sample-01/weak_tacenet.wav", ours: true }
+                ],
+                stage1: [
+                    { label: "Clean Ref.", src: "audio/sample-01/dom_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-01/dom_post_cma.wav" },
+                    { label: "Stage I Output (MP-SENet)", src: "audio/sample-01/dom_stage1.wav" }
+                ],
+                ablation: [
+                    { label: "TACE-Net", src: "audio/sample-01/abl_tacenet.wav", ours: true },
+                    { label: "w/o s&#770;<sub>1</sub> conditioning", src: "audio/sample-01/abl_wo_shat1.wav" },
+                    { label: "w/ noisy x<sub>1</sub><sup>cma</sup> instead of s&#770;<sub>1</sub>", src: "audio/sample-01/abl_noisy_x1cma.wav" }
+                ]
+            },
+            {
+                id: "sample-02",
+                title: "Sample 2",
+                mixture: { label: "Pre-CMA Mixture", src: "audio/sample-02/mixture.wav" },
+                weakMain: [
+                    { label: "Clean Ref.", src: "audio/sample-02/weak_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-02/weak_post_cma.wav" },
+                    { label: "DEMUCS", src: "audio/sample-02/weak_demucs.wav" },
+                    { label: "SEMamba", src: "audio/sample-02/weak_semamba.wav" },
+                    { label: "MP-SENet", src: "audio/sample-02/weak_mpsenet.wav" },
+                    { label: "TACE-Net", src: "audio/sample-02/weak_tacenet.wav", ours: true }
+                ],
+                stage1: [
+                    { label: "Clean Ref.", src: "audio/sample-02/dom_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-02/dom_post_cma.wav" },
+                    { label: "Stage I Output (MP-SENet)", src: "audio/sample-02/dom_stage1.wav" }
+                ],
+                ablation: [
+                    { label: "TACE-Net", src: "audio/sample-02/abl_tacenet.wav", ours: true },
+                    { label: "w/o s&#770;<sub>1</sub> conditioning", src: "audio/sample-02/abl_wo_shat1.wav" },
+                    { label: "w/ noisy x<sub>1</sub><sup>cma</sup> instead of s&#770;<sub>1</sub>", src: "audio/sample-02/abl_noisy_x1cma.wav" }
+                ]
+            },
+            {
+                id: "sample-03",
+                title: "Sample 3",
+                mixture: { label: "Pre-CMA Mixture", src: "audio/sample-03/mixture.wav" },
+                weakMain: [
+                    { label: "Clean Ref.", src: "audio/sample-03/weak_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-03/weak_post_cma.wav" },
+                    { label: "DEMUCS", src: "audio/sample-03/weak_demucs.wav" },
+                    { label: "SEMamba", src: "audio/sample-03/weak_semamba.wav" },
+                    { label: "MP-SENet", src: "audio/sample-03/weak_mpsenet.wav" },
+                    { label: "TACE-Net", src: "audio/sample-03/weak_tacenet.wav", ours: true }
+                ],
+                stage1: [
+                    { label: "Clean Ref.", src: "audio/sample-03/dom_clean.wav" },
+                    { label: "CMA Output", src: "audio/sample-03/dom_post_cma.wav" },
+                    { label: "Stage I Output (MP-SENet)", src: "audio/sample-03/dom_stage1.wav" }
+                ],
+                ablation: [
+                    { label: "TACE-Net", src: "audio/sample-03/abl_tacenet.wav", ours: true },
+                    { label: "w/o s&#770;<sub>1</sub> conditioning", src: "audio/sample-03/abl_wo_shat1.wav" },
+                    { label: "w/ noisy x<sub>1</sub><sup>cma</sup> instead of s&#770;<sub>1</sub>", src: "audio/sample-03/abl_noisy_x1cma.wav" }
+                ]
+            }
+        ];
+
+        function createAudioItem(item) {
+            return `
+                <article class="audio-item">
+                    <div class="audio-title">
+                        <strong>${item.label}</strong>
+                        ${item.ours ? '<span class="ours-badge">Ours</span>' : ""}
+                    </div>
+                    <audio controls preload="none">
+                        <source src="${item.src}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </article>
+            `;
+        }
+
+        function createBranchBlock(title, items) {
+            return `
+                <div class="branch-block">
+                    <div class="branch-title">${title}</div>
+                    <div class="audio-grid reference-grid">
+                        ${items.map((item) => createAudioItem(item)).join("")}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createSubgroup(title, items, gridClass = "") {
+            return `
+                <div class="subgroup">
+                    ${title ? `<div class="subgroup-label">${title}</div>` : ""}
+                    <div class="audio-grid ${gridClass}">
+                        ${items.map((item) => createAudioItem(item)).join("")}
+                    </div>
+                </div>
+            `;
+        }
+
+        function createSampleCard(sample) {
+            return `
+                <article class="sample-card" id="${sample.id}">
+                    <div class="sample-header">
+                        <h3>${sample.title}</h3>
+                    </div>
+                    <section class="sample-section">
+                        <h4>Pre-CMA Mixture x<sub>mix</sub></h4>
+                        <div class="single-audio">
+                            <audio controls preload="none">
+                                <source src="${sample.mixture.src}" type="audio/wav">
+                                Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </section>
+                    <section class="sample-section">
+                        <div class="section-heading">
+                            <span class="stage-badge">CMA</span>
+                            <span class="section-topic">Separation</span>
+                        </div>
+                        <div class="branch-pair">
+                            ${createBranchBlock("Dominant Branch x<sub>1</sub><sup>cma</sup>", sample.stage1.slice(0, 2))}
+                            ${createBranchBlock("Weak Branch x<sub>2</sub><sup>cma</sup>", sample.weakMain.slice(0, 2))}
+                        </div>
+                    </section>
+                    <section class="sample-section">
+                        <div class="section-heading">
+                            <span class="stage-badge">Stage I</span>
+                            <span class="section-topic">Dominant Branch Refinement</span>
+                        </div>
+                        ${createSubgroup("", sample.stage1.slice(2), "output-grid")}
+                    </section>
+                    <section class="sample-section">
+                        <div class="section-heading">
+                            <span class="stage-badge">Stage II</span>
+                            <span class="section-topic">Weak Branch Enhancement</span>
+                        </div>
+                        ${createSubgroup("", sample.weakMain.slice(2), "compare-grid")}
+                    </section>
+                    <section class="sample-section">
+                        <div class="section-heading">
+                            <span class="stage-badge">Ablation</span>
+                            <span class="section-topic">Stage II Variants</span>
+                        </div>
+                        ${createSubgroup("", sample.ablation)}
+                    </section>
+                </article>
+            `;
+        }
+
+        function renderSamples() {
+            const container = document.getElementById("sample-list");
+            container.innerHTML = sampleData.map(createSampleCard).join("");
+        }
+
+        function bindSingleAudioPlayback() {
+            const players = Array.from(document.querySelectorAll("audio"));
+            players.forEach((player) => {
+                player.addEventListener("play", () => {
+                    players.forEach((other) => {
+                        if (other !== player) {
+                            other.pause();
+                        }
+                    });
+                });
+            });
+        }
+
+        renderSamples();
+        bindSingleAudioPlayback();
+    </script>
+</body>
+</html>
