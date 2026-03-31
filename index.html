@@ -360,7 +360,7 @@
         <section class="panel" aria-labelledby="samples-title">
             <h2 id="samples-title">Samples</h2>
             <p>
-                Samples are ordered from harder to easier settings. Samples 1-2 use SNR 20 / SIR 4 / Frequency Offset 200 Hz, Samples 3-4 use SNR 25 / SIR 6 / Frequency Offset 1600 Hz, and Samples 5-6 use SNR 30 / SIR 6 / Frequency Offset 3200 Hz.
+                Each title lists <strong>SNR (dB) / SIR (dB) / Frequency Offset (Hz)</strong>. The six samples are grouped into <strong>Hard</strong> (Samples 1-2), <strong>Medium</strong> (Samples 3-4), and <strong>Easy</strong> (Samples 5-6).
             </p>
             <div class="sample-list" id="sample-list"></div>
         </section>
@@ -370,7 +370,7 @@
         const sampleData = [
             {
                 id: "sample-01",
-                title: "Sample 1 · Hard · SNR 20 / SIR 4 / Frequency Offset 200 Hz",
+                title: "Sample 1 · Hard · SNR 20 dB / SIR 4 dB / Frequency Offset 200 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-01/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-01/weak_clean.wav" },
@@ -393,7 +393,7 @@
             },
             {
                 id: "sample-02",
-                title: "Sample 2 · Hard · SNR 20 / SIR 4 / Frequency Offset 200 Hz",
+                title: "Sample 2 · Hard · SNR 20 dB / SIR 4 dB / Frequency Offset 200 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-02/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-02/weak_clean.wav" },
@@ -416,7 +416,7 @@
             },
             {
                 id: "sample-03",
-                title: "Sample 3 · Medium · SNR 25 / SIR 6 / Frequency Offset 1600 Hz",
+                title: "Sample 3 · Medium · SNR 25 dB / SIR 4 dB / Frequency Offset 1600 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-03/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-03/weak_clean.wav" },
@@ -439,7 +439,7 @@
             },
             {
                 id: "sample-04",
-                title: "Sample 4 · Medium · SNR 25 / SIR 6 / Frequency Offset 1600 Hz",
+                title: "Sample 4 · Medium · SNR 25 dB / SIR 4 dB / Frequency Offset 1600 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-04/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-04/weak_clean.wav" },
@@ -462,7 +462,7 @@
             },
             {
                 id: "sample-05",
-                title: "Sample 5 · Easy · SNR 30 / SIR 6 / Frequency Offset 3200 Hz",
+                title: "Sample 5 · Easy · SNR 30 dB / SIR 6 dB / Frequency Offset 3200 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-05/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-05/weak_clean.wav" },
@@ -485,7 +485,7 @@
             },
             {
                 id: "sample-06",
-                title: "Sample 6 · Easy · SNR 30 / SIR 6 / Frequency Offset 3200 Hz",
+                title: "Sample 6 · Easy · SNR 30 dB / SIR 6 dB / Frequency Offset 3200 Hz",
                 mixture: { label: "Pre-CMA Mixture", src: "audio/sample-06/mixture.wav" },
                 weakMain: [
                     { label: "Clean Ref.", src: "audio/sample-06/weak_clean.wav" },
